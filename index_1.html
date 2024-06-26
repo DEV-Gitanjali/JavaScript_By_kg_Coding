@@ -3,26 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>myntra bag</title>
+
+    <style>
+        .add_item{
+            background-color: rgb(98, 240, 73);
+            color: rgb(16, 16, 16);
+            border-radius: 10px;
+            padding: 10px;
+            margin: 3px;
+        }
+
+        .move_item{
+            background-color: azure;
+            color: black;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 3px;
+
+        }
+    </style>
 </head>
 <body>
+  <button class="add_item" onclick=" 
+    cartQuantity ++ ; 
+   document.querySelector ('#cart-summary').
+        innerText = `your Bag has ${cartQuantity}  items `;
+    ">Add Bag</button>
+
+  <button class="move_item" onclick=" 
+      cartQuantity -- ; document.querySelector ('#cart-summary').
+        innerText = `your Bag has ${cartQuantity}  items `;">move to wishlist</button>
+
+  <button class="add_item" onclick="    cartQuantity +=2 ;
+  document.querySelector ('#cart-summary').
+  innerText = `your Bag has ${cartQuantity}  items `;
+   ">Add 1+1 sale item</button>
+  <h1 id="cart-summary"></h1>
+
     <script>
-     function x(){
-        num=10;
-        
-     }
-
-     x();
-
-     console.log(num);
-    
-
-     function y(){
-        num=20;
-     }
-     x();
-     console.log(num);
-     
+        let  cartQuantity = 0;
+        document.querySelector('#cart-summary').
+        innerText = `your Bag has ${cartQuantity}  items `;
     </script>
 </body>
 </html>
