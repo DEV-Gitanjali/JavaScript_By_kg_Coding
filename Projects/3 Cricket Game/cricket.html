@@ -13,24 +13,8 @@
 <body>
   <h1>Bat Ball Stump Game</h1>
   <button onclick="
-  let randomNumber = Math.random() * 3;
-  let computerChoice ;
-  if(randomNumber> 0 && randomNumber<=1){
-     computerChoice= 'Bat';
-  // console.log('Computer chose Bat');
-  } else if(randomNumber > 1 && randomNumber <=2){
-     computerChoice= 'Ball';
-    // console.log('Computer chose Ball');
-  }
-  else{
-     computerChoice= 'Stump';
-    // console.log('Computer chose Stump');
-  }
 
-  const computerChoiceMsg =`computer choice is ${computerChoice}`;
-
-
-  let resultMsg;
+  let resultMsg= getResult('Bat' , computerChoice);
   if( computerChoice=='Ball'){
     resultMsg='user won';
   }else if(computerChoice=='Bat'){
@@ -46,18 +30,7 @@
 
   <button
   onclick="
-   randomNumber = Math.random() * 3;
-  if(randomNumber> 0 && randomNumber<=1){
-     computerChoice= 'Bat';
-  // console.log('Computer chose Bat');
-  } else if(randomNumber > 1 && randomNumber <=2){
-     computerChoice= 'Ball';
-    // console.log('Computer chose Ball');
-  }
-  else{
-     computerChoice= 'Stump';
-    // console.log('Computer chose Stump');
-  }
+     generateComputerChoice();
    
   if( computerChoice=='Ball'){
     resultMsg =`It's a tie`;
@@ -75,18 +48,7 @@
 
   <button
   onclick="
-   randomNumber = Math.random() * 3;
-  if(randomNumber> 0 && randomNumber<=1){
-     computerChoice= 'Bat';
-  // console.log('Computer chose Bat');
-  } else if(randomNumber > 1 && randomNumber <=2){
-     computerChoice= 'Ball';
-    // console.log('Computer chose Ball');
-  }
-  else{
-     computerChoice= 'Stump';
-    // console.log('Computer chose Stump');
-  }
+    generateComputerChoice()
    
   if( computerChoice=='Ball'){
     resultMsg='Computer won';
@@ -101,5 +63,82 @@
   "
   >Stump</button>
 
+
+  <script>
+
+    let score={
+      win:0,
+      lose:0,
+      tie:0,
+    }
+    
+    function generateComputerChoice(){
+      let computerChoice;
+
+      let randomNumber = Math.random() * 3;
+  // let computerChoice ;
+  if(randomNumber> 0 && randomNumber<=1){
+     computerChoice= 'Bat';
+  // console.log('Computer chose Bat');
+  } else if(randomNumber > 1 && randomNumber <=2){
+     computerChoice= 'Ball';
+    // console.log('Computer chose Ball');
+  }
+  else{
+     computerChoice = 'Stump';
+    // console.log('Computer chose Stump');
+  }
+
+     return computerChoice;
+
+    }
+
+
+    function getResult( userMove , computerMove){
+
+      if(userMove ==='bat'){
+        if(computerMove === "Ball"){
+          return  'User has won';
+        }
+        if(computerMove === userMove){
+          return  `It's a tie`;
+        }
+        else if( computerMove === "Bat"  &&  userMove==='stump'){
+          return  'Computer has won';
+        }
+    } else if(userMove ==='ball'){
+        if(computerMove === "Ball"){
+          return  `it's a tie`;
+        }
+        else if( computerMove === "Bat"){
+          return  'computer  has won';
+        }else if( computerMove === 'stump'){
+          return  'User has won';
+        }
+
+    } 
+       else{
+
+         if(computerMove === "Ball"){
+           return  `Computer has own`;
+          }
+          else if( computerMove === "Bat"){
+            return  'user has own';
+          }else if( computerMove === 'stump'){
+            return  `it's a tie`;
+          }
+        }
+
+    
+
+  }
+
+
+
+    
+
+  </script>
+
 </body>
 </html>
+  
